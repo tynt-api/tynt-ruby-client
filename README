@@ -1,0 +1,47 @@
+------------
+Introduction
+------------
+The Tynt API is a JSON-based web service located at http://api.tynt.com/.
+
+This project contains a Tynt API client implemented in Ruby.  This project
+requires the 'httparty' gem.  If you're interested in a client implementation
+in Java, checkout our Java-based project on github.com.
+
+-------
+License
+-------
+This code is public domain.  Feel free to do with it as you please.
+
+
+---------------------------------
+Using the Tynt API Client Library
+---------------------------------
+
+The Tynt client requires the 'httparty' gem.  The 'httparty' gem requires
+'net/https' which requires libopenssl-ruby to be installed.
+
+The Tynt API is used through the TyntClient class.
+
+Below is a simple example of how to use TyntClient to print out the top Tynt
+categories.
+
+require 'tynt_client'
+
+app_id = "your-app-id-from-dev.tynt.com-goes-here"
+tynt_client = TyntClient.new(app_id)
+result = tynt_client.top_categories
+result.each { |category| puts "  " + category['display_name'] }
+
+For this code example to run, you'll need to make sure that the "app_id"
+variable is set to a valid Tynt app ID.  If you don't have an app ID yet, you
+can get one at dev.tynt.com.
+
+Take a look at the example.rb file for more usage examples of the TyntClient
+class.
+
+
+----------
+Contact Us
+----------
+
+Have questions or feedback?  Contact us at support@tynt.com
